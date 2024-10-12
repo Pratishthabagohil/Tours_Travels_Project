@@ -1,0 +1,13 @@
+<nav>
+    {% load static %}
+    <img src="{% static 'files/logo.png' %}" class="logo" alt="Logo" title="DD Tours and Travels">
+    <ul class="navbar">
+        <li>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="" >Locations</a>
+            <a href="">Packages</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'contact' %}">Contact Us</a>
+        </li>
+    </ul>
+</nav>

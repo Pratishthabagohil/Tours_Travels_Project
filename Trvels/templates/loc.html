@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ location.name }}</title>
+    {% load static %}
+   
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    
+    <link rel="icon" href="{% static 'files/logo.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<style>
+  
+    .footer{
+        padding-top:0px;
+        margin-top:0px;
+    }
+</style>
+</head>
+<body>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Main Content -->
+    <header class="banner">
+        <img src="{% static location.backimage %}" alt="{{ location.name }}" class="banner-img">
+    </header>
+
+    <section class="details">
+        <div class="left-section">
+            <h1>{{ location.name }}</h1>
+            <h3>{{location.line}}</h3>
+            <div class="icons">
+                <div class="icon-item">
+                    <i class="uil uil-calendar-alt"></i>
+                    <p>{{ location.duration }}</p>
+                </div>
+                <div class="icon-item">
+                    <i class="uil uil-map"></i>
+                    <p>Difficulty: {{ location.difficulty }}</p>
+                </div>
+                <div class="icon-item">
+                    <i class="uil uil-users-alt"></i>
+                    <p>Age Group: {{ location.age_group }}</p>
+                </div>
+                <div class="icon-item">
+                    <i class="uil uil-mountains-sun"></i>
+                    <p>Max Altitude: {{ location.altitude }}</p>
+                </div>
+            </div>
+            <div class="about" style="
+                padding-bottom: 20px;
+                padding-top: 40px;
+            ">
+                          
+                <h4>Places To Visit</h4>
+                <p>{{ location.about }}</p>
+                <br>
+                <br>
+                {% if location.brochure %}
+                    <a href="{{ location.brochure.url }}" class="btn-brochure" download>Download Brochure</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="price-card">
+                <h2>{{ location.price }}</h2>
+                <ul>
+                    {% for item in location.includes %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'inquiry_form' %}" class="btn-book">Inquiry Now</a>
+            </div>
+        </div>
+    </section>
+
+   
+<section class="footer">
+    <div class="foot">
+        <div class="footer-content">
+            
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'inquiry_form' %}">Inquiry</a></li>
+                    <li><a href="{% url 'about' %}">About US</a></li>
+                    <li><a href="{% url 'contact' %}">Contact US</a></li>
+                </ul>
+            </div>
+
+            <div class="footlinks">
+                <h4>Connect</h4>
+                <div class="social">
+                    <a href="" target="_blank"><i class='bx bxl-facebook'></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-twitter' ></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-youtube' ></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-wordpress' ></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="end">
+        <p>Copyright © 2024 DD Tours and Travels All Rights Reserved.<br>Website developed by: Pratishtha, Dipali, Harshil</p>
+    </div>
+</section>
