@@ -66,7 +66,7 @@ def submit_inquiry(request):
         )
         inquiry.save() 
         # Recipient email address
-        recipient_email = 'gohilpratishtha57@gmail.com'  # Update as needed
+        recipient_email = '@gmail.com'  # Update as needed
 
         # Send email
         send_mail(
